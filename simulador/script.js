@@ -66,9 +66,11 @@ function registroAlumnos() {
     let ingresoApellido = prompt("Ingrese su apellido");
     let ingresoEdad = Number(prompt("Ingrese su edad"));
     let ingresoTelefono = Number(prompt("Ingrese su número de celular"));
+    let contraseñaRegistrada = prompt("Ingrese su contraseña");
     let alumnoRegistrado = new Alumnos(ingresoNombre, ingresoApellido, ingresoEdad, ingresoTelefono);
+    
     planillaAlumnos.push(alumnoRegistrado);
-    console.log(planillaAlumnos);
+    //console.log(planillaAlumnos);
 }
 
 
@@ -77,9 +79,13 @@ do {
     alert(`Hola, resgistre un alumno en la planilla.`);
     registroAlumnos();
     seguir = prompt("desea agregar otro alumno").toLowerCase();
-} while (seguir == "si") {
-    
-}
+} while (seguir == "si")
+
+console.log(planillaAlumnos);
+
+let buscarAlumno = prompt(`Ingrese el nombre del alumno que desea buscar`);
+let busquedaNombre = planillaAlumnos.filter(alumno => alumno.nombre == buscarAlumno)
+console.log(busquedaNombre);
 
 
 
