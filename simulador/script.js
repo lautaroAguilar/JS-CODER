@@ -32,11 +32,12 @@ do {
 //Creamos la planilla de alumnos
 
 class Alumnos {
-    constructor(nombre, apellido, edad, telefono, ) {
-        this.nombre = nombre.toUpperCase();
-        this.apellido = apellido.toUpperCase();
+    constructor(nombre, apellido, edad, telefono, contrasenia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.edad = edad;
         this.telefono = telefono;
+        this.contrasenia = contrasenia;
     }
     saludar() {
         this.saludar = `Hola, ${this.nombre} ayudanos a registrar tu asistencia.`
@@ -44,37 +45,83 @@ class Alumnos {
 
 }
 
+
+
+const alumno1 = new Alumnos("German", "Baez", 20, 1122501012, "rojo");
+const alumno2 = new Alumnos("Agustin", "Lazarte", 20, 1122502191, "azul");
+const alumno3 = new Alumnos("Fernando", "Rodriguez", 20, 1122503182, "amarillo");
+const alumno4 = new Alumnos("Florencia", "Lazarte", 20, 1122504511, "verde");
+const alumno5 = new Alumnos("Pilar", "Sosa", 20, 1122505567, "celeste");
+const alumno6 = new Alumnos("Luciana", "Lousteau", 20, 1122506111, "naranja");
+
 let planillaAlumnos = [];
 
-function logeoAlumnos() {
-    let ingresoNombre = prompt("Ingrese su nombre").toUpperCase();
-    let ingresoApellido = prompt("Ingrese su apellido").toUpperCase();
+planillaAlumnos.push(alumno1, alumno2, alumno3, alumno4, alumno5, alumno6);
+
+// funcion para registrarse, por el momento no la voy a usar porque no tengo manera de que me queden guardados estos datos, solo para el desafio.
+
+
+function registroAlumnos() {
+    let ingresoNombre = prompt("Ingrese su nombre");
+    let ingresoApellido = prompt("Ingrese su apellido");
     let ingresoEdad = Number(prompt("Ingrese su edad"));
     let ingresoTelefono = Number(prompt("Ingrese su número de celular"));
-    let alumnoLogeado = new Alumnos(ingresoNombre, ingresoApellido, ingresoEdad, ingresoTelefono);
-    planillaAlumnos.push(alumnoLogeado);
+    let alumnoRegistrado = new Alumnos(ingresoNombre, ingresoApellido, ingresoEdad, ingresoTelefono);
+    planillaAlumnos.push(alumnoRegistrado);
     console.log(planillaAlumnos);
 }
 
+
+
+do {
+    alert(`Hola, resgistre un alumno en la planilla.`);
+    registroAlumnos();
+    seguir = prompt("desea agregar otro alumno").toLowerCase();
+} while (seguir == "si") {
+    
+}
+
+
+
+
 // Funcion para pedir el codigo al alumno/a.
 
-function pedirCodigo() {
+/* function pedirCodigo() {
     let salida
     do {
         let ingresoDeCodigo = prompt(`Ingrese su codigo por favor`);
         if (ingresoDeCodigo != 546281) {
             alert(`Codigo incorrecto, intentelo nuevamente`);
-            confirm(`Desea intentarlo nuevamente?`)
+            confirmacion = confirm(`Desea intentarlo nuevamente?`);
+            if (confirmacion != true) {
+                break;
+            }
         } else {
             alert(`Código exitoso`);
             salida = prompt(`Escriba "ESC" para salir`).toUpperCase();
         }
     } while (salida != "ESC") {
 
-    }
-}
-// 
+    } 
+}*/
 
-logeoAlumnos();
+
+/* registroAlumnos();
 console.log(planillaAlumnos);
-pedirCodigo();
+pedirCodigo(); */
+
+/* alert(`Hola, ${entradaNombre} ayudanos a registrar tu asistencia.`);
+    let entradaContrasenia = prompt(`${entradaNombre} ingrese su contraseña por favor`);
+    busquedaContrasenia = planillaAlumnos.find((el) => el.contrasenia == entradaContrasenia);
+    console.log(busquedaContrasenia);
+} if (busquedaContrasenia == entradaContrasenia) {
+    do {
+        let confirm = confirm("Lo sentimos, su contraseña es incorrecta. Deseo intentarlo nuevamente?");
+    }
+        while (confirm == true) {
+        
+    }
+} else {
+    
+        alert(`Contraseña correcta ${entradaNombre}`)
+     */
