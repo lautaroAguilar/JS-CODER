@@ -59,6 +59,7 @@ function crearFormulario() {
     botonReseteo.className = `boton`;
     botonRegistro.className = `boton`;
     botonReseteo.setAttribute(`id`, `boton-reseteo`);
+    botonReseteo.setAttribute(`type`, `reset`);
     botonRegistro.setAttribute(`id`, `boton-registro`);
     botonReseteo.innerText = `Resetear`;
     botonRegistro.innerText = `Registrarme`;
