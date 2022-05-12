@@ -13,7 +13,11 @@ button1.addEventListener(`click`, (e) => {
     crearFormulario();
     obtenerValoresInputsEnviarlosAlArrayYStorage();
 });
-//button2.addEventListener(`click`,);
+button2.addEventListener(`click`, (e) => {
+    e.preventDefault();
+    eliminarBotoneraYBienvenidos();
+    ponerCódigo();
+});
 
 // ÁREA DE CREACIÓN DE FUNCIONES
 function eliminarBotoneraYBienvenidos() {
@@ -119,4 +123,62 @@ function mostrarFicha() {
 
     ul.append(li1, li2, li3, li4);
     container.append(ul);
+}
+
+//FN ponerCódigo
+
+let inputClave = ``;
+let botonEnviarCodigo = ``;
+let botonCancelarEnvio = ``;
+
+function ponerCódigo() {
+    //titulo
+    let h2 = document.createElement(`h2`);
+    h2.innerText = `Ingrese el codigo de verificación para contar su asistencia`;
+    //input
+    inputClave = document.createElement(`input`);
+    inputClave.setAttribute(`id`, `inputClave`);
+    inputClave.setAttribute(`placeholder`, `Ingresar código`);
+    //boton enviar
+    botonEnviarCodigo = document.createElement(`a`);
+    botonEnviarCodigo.setAttribute(`id`, `botonEnviarCodigo`);
+    botonEnviarCodigo.innerText = `Enviar`;
+    //boton cancelar
+    botonCancelarEnvio = document.createElement(`a`);
+    botonCancelarEnvio.setAttribute(`id`, `botonCancelarEnvio`);
+    botonCancelarEnvio.innerText = `Cancelar`;
+    container.append(h2);
+    container.append(inputClave);
+    container.append(botonEnviarCodigo);
+    container.append(botonCancelarEnvio);
+
+    //Alerta según código
+    botonEnviarCodigo.addEventListener(`click`, (e) => {
+        e.preventDefault();
+        let value = inputClave.value;
+        if (value == 546862) {
+            //sweet alert "Contraseña correcta" 
+            swal({
+                title: "Código correcto",
+                text: "¡Felicitaciones, tu código fue verificado con éxito!",
+                icon: "success",
+                timer: 5000,
+                button: true,
+            });
+        } else {
+            //sweet alert "Contraseña incorrecta" 
+            swal({
+                title: "Código incorrecto",
+                text: "¡Tenemos un problema, tu código es incorrecto!",
+                icon: "error",
+                button: true,
+            });
+
+        }
+    })
+    //cancelar y volver
+    botonCancelarEnvio.addEventListener(`click`, (e) => {
+        e.preventDefault();
+        //falta volver a bienvenida, eliminando ponerCodigo() y creando bienvenida (creo)
+    })
 }
